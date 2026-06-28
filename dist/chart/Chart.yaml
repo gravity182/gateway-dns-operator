@@ -1,0 +1,14 @@
+apiVersion: v2
+name: gateway-dns-operator
+description: Sync Gateway API HTTPRoutes to local DNS for split-horizon routing.
+type: application
+
+version: 0.1.0
+appVersion: "v0.1.0"
+
+keywords:
+  - kubernetes
+  - operator
+
+annotations:
+  kubebuilder.io/generated-by: kubebuilder
