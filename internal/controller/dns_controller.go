@@ -20,6 +20,7 @@ import (
 	gatewayv1 "sigs.k8s.io/gateway-api/apis/v1"
 )
 
+// AdguardRewriteClient allows to communicate with AdGuard Home rewrite control API.
 type AdguardRewriteClient interface {
 	ListRewrites(context.Context) ([]adguard.RewriteEntry, error)
 	AddRewrite(context.Context, string, string) error
@@ -144,7 +145,7 @@ func buildDesiredState(ctx context.Context, c client.Client) (map[string]string,
 	logger := log.FromContext(ctx)
 
 	var routes gatewayv1.HTTPRouteList
-	// TODO: filter routes by successfull state
+	// TODO: filter routes by successful state
 	if err := c.List(ctx, &routes); err != nil {
 		return nil, fmt.Errorf("list httproutes: %w", err)
 	}
